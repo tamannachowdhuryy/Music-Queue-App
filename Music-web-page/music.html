@@ -1,23 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<title>Music-Queue-Web</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>TuneSync</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-  <h1 class="heading">Music-Queue-Web</h1>
-  <p>Enter a song to queue.</p>
-  <script src="music.js"></script>
+  <script src="script.js"></script>
+  <header>
+    <h1 class = "logo">TuneSync</h1>
+    <nav>
+      <ul class = "sub-class">
+        <li><a href="#chart">Chart</a></li>
+        <li><a href="#libary">Libary</a></li>
+        <li><a href="#dowload">Dowload</a></li>
+      </ul>
+    </nav>
+    <a class="join_button" href="#join">Join Party</a>
 
-    <label>Your Name: </label>
-    <input type="text" id="name"></input>
-    <label>Your Favorite Cookies: </label>
-    <input type="text" id="cookie"></input>
-    <button onclick="onSubmit()">Submit</button>
-    <div id="response"></div>
+  </header>
+
+<!-- This section will divde all the sections into 3 sections. -->
+  <section id ="first"></section>
+  <section id ="libary"></section>
+  <section id ="dowload"></section>
+
+
+<!-- this is where the user will join the party and give the songs they recommend   -->
+  <section id="join">
+    <div class="header">
+      <h2 class="sub1">Join Party</h2>
+      <h3 class="comments">Pick your top 5 favorite songs</h3>
+  
+      <form id="songForm">
+        <!-- Input boxes -->
+        <div class="input-box">
+          <label for="song1">Song 1:</label>
+          <input type="text" id="song1" required>
+        </div>
+  
+        <div class="input-box">
+          <label for="song2">Song 2:</label>
+          <input type="text" id="song2" required>
+        </div>
+  
+        <div class="input-box">
+          <label for="song3">Song 3:</label>
+          <input type="text" id="song3" required>
+        </div>
+  
+        <div class="input-box">
+          <label for="song4">Song 4:</label>
+          <input type="text" id="song4" required>
+        </div>
+  
+        <div class="input-box">
+          <label for="song5">Song 5:</label>
+          <input type="text" id="song5" required>
+        </div>
+  
+        <!-- Enter button -->
+        <button type="button" onclick="submitSongs()">Enter</button>
+      
+      </form>
+    </div>  
+  </section>
+  
+<!-- Voting Section: changes made were just adding the photos just for the layout -->
+  <section id ="vote">
+    <div class="header">
+      <h2 class="word">Vote</h2>
+      <div class="container">
+        <div class="gallery">
+          <div class="image">
+            <img src="pictures/starboy.jpeg" alt="image1" class="gallery-img">
+          </div>
+    
+          <div class="image">
+            <img src="pictures/lana.jpeg" alt="image2" class="gallery-img">
+          </div>
+    
+          <div class="image">
+            <img src="pictures/IU.jpeg" alt="image3" class="gallery-img">
+          </div>
+    
+          <div class="image">
+            <img src="pictures/taylor.jpeg" alt="image3" class="gallery-img">
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- CHART: this section is the chart part where all the songs will be displayed that were selected by the user -->
+  <section id ="chart">
+    <div class = "box">
+     <h2>Top Songs Picked</h2>
+      <h3 class = "votes">Top votes in the area :)</h3>
+      <div class="music-playlist">
+      <div class="music-menu text-center">
+        <div class="menu">
+        <ul>
+          <li><a href="#">Top Songs</a></li>
+          <li><a href="#">Upvotes</a></li>
+          <li><a href="#">Downvotes</a></li>
+          <li><a href="#">Genres</a><li>
+        </ul>
+        </div>
+      </div>
+      </div>
+      
+    </div>
+  </section>
 </body>
 
 </html>
