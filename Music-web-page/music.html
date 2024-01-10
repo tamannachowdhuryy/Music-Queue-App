@@ -1,23 +1,257 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<title>Music-Queue-Web</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>TuneSync</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <h1 class="heading">Music-Queue-Web</h1>
-  <p>Enter a song to queue.</p>
   <script src="music.js"></script>
+  <header>
+    <h1 class="logo">TuneSync</h1>
+    <div class="header-RHS">
+      <nav>
+        <ul class="nav-bar">
+          <li><a href="#chart">Chart</a></li>
+          <li><a href="#library">Library</a></li>
+          <li><a href="#download">Download</a></li>
+        </ul>
+      </nav>
+      <a class="join_button" href="#join">Join Party</a>
+    </div>
+  </header>
 
-    <label>Your Name: </label>
-    <input type="text" id="name"></input>
-    <label>Your Favorite Cookies: </label>
-    <input type="text" id="cookie"></input>
-    <button onclick="onSubmit()">Submit</button>
-    <div id="response"></div>
+  <!-- Home-Page-Section -->
+  <section id="Home-Page">
+    <div class="banner">
+      <h1>Live and Breathe Singing</h1>
+      <p>TuneSync is a free and open source music streaming platform that allows you <br> <span class="line-break">to
+listen to any music and remotely sing with your friends.</span>
+      </p>
+    </div>
+  </section>
+
+
+  <!-- Download Section -->
+  <section id="download">
+    <div class="login-box">
+      <h3 class="subtitle">Login</h3>
+      <button><img src="pictures/google.png">Sign in with Google</button>
+      <button><img src="pictures/spotify.png">Sign in with Spotify</button>
+      <hr>
+      <span>Or</span>
+      <form>
+        <input type="text" placeholder="Email or Username">
+        <button>Next</button>
+      </form>
+      <button>Forgot Password?</button>
+      <p>Don't have an account? <a href= "#">Sign up</a></p>
+      
+      
+
+  </section>
+
+
+  <!-- this is where the user will join the party and give the songs they recommend   -->
+  <section id="join">
+    <div class="header">
+      <h2 class="sub1">Join Party</h2>
+      <h3 class="comments">Pick your top 5 favorite songs</h3>
+
+      <form id="songForm">
+        <!-- Input boxes -->
+        <div class="input-box">
+          <label for="song1">Song 1:</label>
+          <input type="text" id="song1" required>
+        </div>
+
+        <div class="input-box">
+          <label for="song2">Song 2:</label>
+          <input type="text" id="song2" required>
+        </div>
+
+        <div class="input-box">
+          <label for="song3">Song 3:</label>
+          <input type="text" id="song3" required>
+        </div>
+
+        <div class="input-box">
+          <label for="song4">Song 4:</label>
+          <input type="text" id="song4" required>
+        </div>
+
+        <div class="input-box">
+          <label for="song5">Song 5:</label>
+          <input type="text" id="song5" required>
+        </div>
+
+        <!-- Enter button -->
+        <button type="button" onclick="submitSongs()">Enter</button>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- Voting Section: changes made were just adding the photos just for the layout -->
+  <section id="vote">
+    <div class="header">
+      <h2 class="word">Vote</h2>
+      <div class="container">
+        <div class="gallery">
+          <div class="image">
+            <img src="pictures/starboy.jpg" alt="image1" class="gallery-img">
+          </div>
+
+          <div class="image">
+            <img src="pictures/lana.jpg" alt="image2" class="gallery-img">
+          </div>
+
+          <div class="image">
+            <img src="pictures/IU.jpg" alt="image3" class="gallery-img">
+          </div>
+
+          <div class="image">
+            <img src="pictures/taylor.jpg" alt="image3" class="gallery-img">
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- CHART: this section is the chart part where all the songs will be displayed that were selected by the user -->
+  <section id="chart">
+    <div class="box">
+      <h2>Top Songs Picked</h2>
+      <h3 class="votes">Top votes in the area :)</h3>
+      <div class="music-playlist">
+        <div class="music-menu text-center">
+          <div class="menu">
+            <ul>
+              <li><a href="#song">Top Songs</a></li>
+              <li><a href="upvote.html">Upvotes</a></li>
+              <li><a href="downvote.html">Downvotes</a></li>
+              <li><a href="genre.html">Genres</a><li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id = song>
+      <div class="background">
+          <section class="album-info">
+              <div class="album-art">
+                  <img src='https://target.scene7.com/is/image/Target/51223401?wid=520&hei=520&fmt=pjpeg'>
+                  <div class="actions">
+                      <div class="play">Play</div>
+
+                          </svg>
+                      </div>
+                  </div>
+              </div>
+              <div class="album-details">
+
+
+
+              </div>
+              <div class="album-tracks">
+                  <ol>
+                      <li>
+                          <span>Feel Invincible</span>
+                          <span>3:49</span>
+                      </li>
+                      <li>
+                          <span>Back From The Dead</span>
+                          <span>3:33</span>
+                      </li>
+                      <li>
+                          <span>Stars</span>
+                          <span>3:47</span>
+                      </li>
+                      <li>
+                          <span>I Want To Live</span>
+                          <span>3:28</span>
+                      </li>
+                      <li>
+                          <span>Undefeated</span>
+                          <span>3:35</span>
+                      </li>
+                      <li>
+                          <span>Famous</span>
+                          <span>3:18</span>
+                      </li>
+                      <li>
+                          <span>Lions</span>
+                          <span>3:24</span>
+                      </li>
+                      <li>
+                          <span>Out Of Hell</span>
+                          <span>3:34</span>
+                      </li>
+                      <li>
+                          <span>Burn It Down</span>
+                          <span>3:16</span>
+                      </li>
+                      <li>
+                          <span>Watching For Comets</span>
+                          <span>3:29</span>
+                      </li>
+                      <li>
+                          <span>Saviors Of The World</span>
+                          <span>3:46</span>
+                      </li>
+                      <li>
+                          <span>The Resistance</span>
+                          <span>3:52</span>
+                      </li>
+                  </ol>
+              </div>
+          </section>
+      </div>
+  </section>
+
+  <!--Library Section-->
+
+  <section id="library">
+    <h2 class="title">My Library</h2>
+
+    <div class="lib-mid-container">
+      <div class="lib-inner">
+        <h4>Votes</h4>
+        <p>&gt;</p>
+      </div>
+
+      <div class="lib-inner">
+        <h4>Artists</h4>
+        <p>&gt;</p>
+      </div>
+
+      <div class="lib-inner">
+        <h4>Playlist</h4>
+        <p>&gt;</p>
+      </div>
+    </div>
+
+    <div class="lib-bottom-container">
+      <h3 class="sub-title">Recent</h3>
+      <div class="album-scrollmenu">
+        <img class="image-placeholder" src="pictures/image-placeholder.jpg">
+        <img class="image-placeholder" src="pictures/image-placeholder.jpg">
+        <img class="image-placeholder" src="pictures/image-placeholder.jpg">
+        <img class="image-placeholder" src="pictures/image-placeholder.jpg">
+      </div>
+    </div>
+
+  </section>
 </body>
 
 </html>
