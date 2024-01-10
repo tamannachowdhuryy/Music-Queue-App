@@ -3,10 +3,14 @@ import socketserver
 from http import HTTPStatus
 import json
 
-preferences = []
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
+    preferences = {
+
+    }
+
+
     def do_POST(self):
         # Set the required headers for the POST request.
         self.send_response(200)
@@ -22,32 +26,36 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         # Do some processing logic. This is the "meat and potatoes" of your app.
         print("Recieved Request: ")
         print(body_message)
-        ## Add the request preferences for this single request to the global list
-        preferences.append(body_message)
-        ## Returns preferences for ALL users across ALL requests
-        ## Note that we use the definition from the API to know what field should
-        ## exist on the response body. The API definition we agreed upon says
-        ## the preferences list should be sorted by name, so we must abide by 
-        ## that and sort them.
-  
-        # sorted_preferences = sorted(preferences, key = lambda pref: pref["name"])
-        # preferences_list = list(
-        #     map(
-        #         lambda pref: f"%s likes %s cookies"
-        #         % (pref["name"], pref["cookie"]),
-        #         sorted_preferences,
-        #     )
-        # )
-
-        # Write a response
-        self.wfile.write(json.dumps({}).encode())
+        if (self.path == '/songs'): 
+            print('/songs')
+            for song in body_message['songNames']:
+                if song == '':
+                    continue
+                if song in self.preferences:
+                    self.preferences[song] = self.preferences[song] + 1
+                else:
+                    self.preferences[song] = 1
+                
+            # self.preferences += (body_message['songNames']) 
+            print(self.preferences)
+            self.wfile.write(json.dumps({}).encode())
+        elif (self.path == '/votes'):
+            print('vote')
+            
 
     def do_GET(self):
         self.send_response(200)
         self.send_header("Content-type", "application/json")
         self.send_header("Access-Control-Allow-Origin", "*")
         self.end_headers()
+        print(self.path)
+
+        if(self.path == '/votes'):
+            print('hi')
+            self.wfile.write(json.dumps({'songNames' : self.preferences}).encode())
+            return 
         self.wfile.write(json.dumps({}).encode())
+        print('hi2')
 
 
 port_num = 8000
