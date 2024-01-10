@@ -1,8 +1,8 @@
 /* GERNERAL */
 body {
   font-family: 'Market Felt', 'Comic Sans MS';
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 * {
@@ -41,52 +41,40 @@ button {
 header {
   position: fixed;
   top: 0;
-  z-index: 100;
   width: 100%;
-  height: fit-content;
   display: flex;
-  border-bottom-style: solid;
-  border-bottom-color: white;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 25px 20px 25px;
+  padding: 30px 10%;
   background-color: #231e41;
 }
 
 .logo {
   cursor: pointer;
+  margin-right: auto;
   color: white;
 }
 
-.header-RHS {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-bar {
+.sub-class {
   list-style: none;
-  display: flex;
-  /*Fix shrink issue falling out of place when web browser shrink;*/
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  ;
 }
 
-.nav-bar a {
+.sub-class li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.sub-class li a {
   transition: all 0.3s ease 0s;
   color: white;
 }
 
-.nav-bar li a:hover {
+.sub-class li a:hover {
   color: #3A4089;
 }
 
 header .join_button {
-  margin-left: 30px;
+  margin-left: 20px;
   padding: 10px 15px;
   border: none;
   border-radius: 50px;
@@ -97,41 +85,11 @@ header .join_button {
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  flex-shrink: 0;
+
 }
 
 header .join_button:hover {
   background-color: #657495;
-}
-
-
-/*Intro-Home-Page*/
-.banner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(pictures/intro-banner.webp);
-  background-size: cover;
-  background-position: top;
-}
-
-.banner h1 {
-  font-size: 50px;
-  font-family: "Roboto+Slab";
-  margin-top: 300px;
-  margin-bottom: 15px;
-}
-
-.banner p {
-  font-size: 18px;
-  font-family: "Roboto+Slab";
-  line-height: 25px;
-}
-
-.line-break {
-  margin-left: 50px;
 }
 
 
@@ -315,462 +273,4 @@ ul li a {
   text-decoration: none;
   padding: 5px 15px;
   letter-spacing: 0.5px;
-}
-
-/* this is going to be apart of top song  */
-#upvote {
-  text-align: center;
-  padding: 20px;
-}
-
-h2 {
-  color: white;
-  font-size: 140px;
-}
-
-.song-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-li {
-  margin: 10px;
-  text-align: center;
-}
-
-h3 {
-  margin-bottom: 5px;
-}
-
-img {
-  width: 100px;
-  /* Adjust the size as needed */
-  height: 100px;
-  /* Adjust the size as needed */
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-
-/* this is the song section */
-
-
-:root {
-  --color: #faa700;
-  --color-light: #f5ede1;
-  --dark: #a7a7a7;
-  --darker: #303030;
-  --sans-serif: 'Roboto', sans-serif;
-}
-
-@mixin flex($j: initial, $a: initial, $w: initial, $c: initial) {
-  display: flex;
-  flex-wrap: $w;
-  justify-content: $j;
-  align-items: $a;
-  align-content: $c;
-}
-
-body {
-  font-family: var(--sans-serif);
-  background: #eeeeee;
-}
-
-.background {
-  width: 100%;
-  height: 56.25vw;
-  background: url(https://cdn.klove.com/images/music/artists/bios/SkilletUnleashed.KLArtist.jpg) center/cover;
-  box-shadow: inset 0px -17vw 20vw 1vw #0a1a24;
-  position: absolute;
-  top: 0;
-  z-index: -1;
-
-  img {
-    max-width: 100%;
-    max-height: 100vh;
-    box-shadow: inset 0px -17vw 30vw 1vw #131313;
-  }
-
-  +section {
-    margin-top: 60vmin;
-    background: transparent;
-
-    .bookmark {
-      border-color: rgba(255, 255, 255, 0.2);
-
-      svg {
-        fill: #fff;
-      }
-    }
-
-    .album-tracks {
-      background: rgba(255, 255, 255, 0.1);
-      border: none;
-    }
-  }
-}
-
-section {
-  background-color: black;
-  margin: 100px 56px;
-  padding: 20px 56px;
-  color: var(--darker);
-  color: rgba(255, 255, 255, 0.8);
-
-  .album-info:after {
-    content: " ";
-    display: block;
-    height: 0;
-    clear: both;
-  }
-
-  .album-art {
-    float: left;
-    width: 220px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-
-    * {
-      border-radius: 3px;
-    }
-
-    img {
-      width: 100%;
-      margin-bottom: 10px;
-      margin-top: -80px;
-      box-shadow: 0 5px 60px -3px rgba(0, 0, 0, 0.18);
-    }
-  }
-
-  .play {
-    @include flex(center, center);
-    color: white;
-    background: var(--color);
-    padding: 10px;
-    text-transform: uppercase;
-    flex: 1 0 50%;
-  }
-
-  .bookmark {
-    @include flex(center, center);
-    width: 48px;
-    height: 48px;
-    border: 3px solid var(--color-light);
-    margin-left: 10px;
-  }
-
-  .album-details>* {
-    padding: 10px 0;
-  }
-
-  h2 {
-    @include flex(initial, center);
-    color: var(--dark);
-    font-size: 16px;
-    font-weight: 500;
-    text-transform: uppercase;
-
-    img {
-      width: 24px;
-      border-radius: 50%;
-      margin-right: 10px;
-    }
-  }
-
-  h1 {
-    font-size: 50px;
-    font-weight: 300;
-    word-wrap: break-word;
-
-    +span {
-      color: var(--dark);
-
-      span:first-child {
-        padding-right: 20px;
-      }
-    }
-  }
-
-  p {
-    margin-top: 15px;
-  }
-
-  .album-tracks {
-    background: #f8f8f8;
-    border: 1px solid #efefef;
-    margin-top: 20px;
-  }
-
-  @media (max-width: 800px) {
-    margin: 100px 36px 36px 36px;
-  }
-
-  @media (max-width: 700px) {
-    .album-art {
-      width: 100%;
-
-      img {
-        width: auto;
-        max-width: 100%;
-        margin: -100px auto 10px auto;
-        display: block;
-      }
-    }
-
-    .album-details {
-      float: left;
-      max-width: 100%;
-    }
-  }
-
-  @media (max-width: 550px) {
-    margin: 100px 20px 20px 20px;
-    padding: 20px 16px;
-
-    ol {
-      padding: 16px;
-    }
-  }
-}
-
-ol {
-  list-style-type: none;
-  padding: 20px 36px;
-  font-weight: 500;
-
-  li {
-    counter-increment: number;
-    @include flex(space-between, center);
-    height: 45px;
-    color: var(--dark);
-
-    span:not(:last-child) {
-      margin-right: 2em;
-
-      @media (max-width: 700px) {
-        margin-right: 1em;
-      }
-    }
-
-    span:first-child {
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      color: var(--darker);
-
-      &:before {
-        content: counter(number);
-        margin-right: 2em;
-        color: var(--dark);
-        display: inline-block;
-        text-align: end;
-        width: 20px;
-      }
-    }
-  }
-
-  @media (max-width: 700px) {
-    li {
-      flex-direction: column;
-      align-items: flex-start;
-
-      span:not(:last-child) {
-        margin-right: 0;
-        margin-bottom: 0.5em;
-      }
-    }
-  }
-}
-
-.actions {
-  @include flex();
-  flex: 1 1 100%;
-}
-
-
-
-/*Library Section*/
-#library {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
-}
-
-#library .title {
-  position: absolute;
-  top: 0px;
-  left: 10px;
-  color: black;
-  font-size: 60px;
-}
-
-#library .lib-mid-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  font-size: 35px;
-  font-family: arial;
-  margin: 140px 80px 200px 70px;
-  height: 400px;
-}
-
-#library .lib-inner {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  color: black;
-  padding: 0px 0px 40px 0px;
-  border-bottom-style: solid;
-  border-bottom-width: 4px;
-  border-bottom-color: #e8eaed;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-}
-
-#library .lib-inner:active {
-  margin-top: 3px;
-  margin-left: 3px;
-  box-shadow: none;
-}
-
-#library p {
-  font-size: 45px;
-}
-
-#library .lib-bottom-container {
-  margin-bottom: 100px;
-}
-
-#library .sub-title {
-  position: absolute;
-  left: 40px;
-  top: 625px;
-  color: #3f4e6e;
-  font-size: 55px;
-}
-
-#library .album-scrollmenu {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 0px 30px 0px;
-  margin: 0px 70px 0px 80px;
-  background-color: #424549;
-  overflow: auto;
-  white-space: nowrap;
-}
-
-#library .image-placeholder {
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
-  margin: 0px 30px 0px 30px;
-}
-
-/* Download Section */
-#download {
-  position: relative;
-}
-
-#download .title {
-  position: absolute;
-  top: 0px;
-  left: 10px;
-  color: black;
-  font-size: 60px;
-}
-
-#download .login-box {
-  background: #fff;
-  text-align: center;
-  padding: 20px;
-  width: 50%;
-  position: absolute;
-  border-radius: 10px;
-}
-
-#download .subtitle {
-  color: black;
-  font-size: 30px;
-  text-align: center;
-}
-
-#download .login-box button img {
-  margin-right: 10px;
-  width: 18px;
-  height: 18px;
-}
-
-#download .login-box button {
-  width: 100%;
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 0;
-  border-radius: 30px;
-  background: transparent;
-  border: 1px solid #999;
-  font-weight: 500;
-  color: black;
-}
-
-#download .login-box hr {
-  border: 0;
-  height: 1px;
-  background: #c2c2c2;
-  margin: 5px;
-}
-
-#download .login-box span {
-  display: block;
-  width: 40px;
-  margin: auto;
-  background: #fff;
-  font-size: 14px;
-  margin-top: -16px;
-  color: black;
-  font-weight: normal;
-
-}
-
-#download .login-box form {
-  margin-top: -60px;
-}
-
-#download .login-box input {
-  width: 100%;
-  background: transparent;
-  border: 1p solid #999;
-  outline: 0;
-  padding: 15px 10px;
-
-}
-
-#download .login-box form button {
-  background: #3A4089;
-  color: #fff;
-  border: 0;
-  margin-bottom: 15px;
-}
-
-#download .login-box p {
-  text-align: left;
-  color: black;
-  font-size: 14px;
-  margin-top: -10px;
-  font-weight: normal;
-}
-
-#download .login-box p a {
-  color: #359cf0;
-  font-family: arial;
 }
