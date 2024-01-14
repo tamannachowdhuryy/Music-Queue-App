@@ -28,6 +28,19 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+  fetch('/get_songs')
+    .then(response => response.json())
+    .then(songs => {
+      const songList = document.getElementById('song-list');
+      songs.forEach(song => {
+        const track = createTrackElement(song); // Create a track element
+        songList.appendChild(track);
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching songs:', error);
+      // Display an error message to the user
+    });
 });
 
 
@@ -49,7 +62,7 @@ async function submitSongs() { //run in its own time
   const response = await fetch('http://localhost:8000/songs', {
     method: "POST", body: JSON.stringify({
       songNames: [song1, song2, song3, song4, song5],
-      
+
     })
   }).then(response => {
     if (!response.ok) {
@@ -61,17 +74,47 @@ async function submitSongs() { //run in its own time
 
 }
 
+// async function refreshSongs() {
+//   console.log('hi')
+
+
+//   const response = await fetch('http://localhost:8000/votes', {
+//     method: "GET"
+//   }).then(response => {
+//     if (!response.ok) {
+//       throw new Error('Network response was not OK');  // Handle non-200 status codes
+//     }
+//     return response.json();  // Parse the response as JSON
+//   })
+//   console.log(response)
+// }
+
 async function refreshSongs() {
-  console.log('hi')
+  try {
+    const response = await fetch('/get_songs');
+    const songs = await response.json();
 
+    const songList = document.getElementById('song-list');
+    songList.innerHTML = ''; // Clear existing tracks
 
-  const response = await fetch('http://localhost:8000/votes', {
-    method: "GET"
-  }).then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not OK');  // Handle non-200 status codes
-    }
-    return response.json();  // Parse the response as JSON
-  })
-  console.log(response)
+    songs.forEach(song => {
+      const track = createTrackElement(song);
+      songList.appendChild(track);
+    });
+  } catch (error) {
+    console.error('Error refreshing songs:', error);
+    // Display an error message to the user
+  }
+}
+
+// Helper function to create a track element
+function createTrackElement(song) {
+  // Construct the track element's HTML structure using song data
+  // Example:
+  const track = document.createElement('track'); // Adjust element type as needed
+  track.innerHTML = `
+    <h3>${song.title}</h3>
+    <p>${song.artist}</p>
+    `;
+  return track;
 }

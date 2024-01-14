@@ -1,8 +1,9 @@
 /* GERNERAL */
 body {
-  font-family: 'Market Felt', 'Comic Sans MS';
   margin: 0px;
   padding: 0px;
+  font-family: var(--sans-serif);
+  background: #eeeeee;
 }
 
 * {
@@ -20,7 +21,7 @@ section {
   background: #6f89bf;
   color: white;
   font-weight: 700;
-  font-size: 100px;
+  font-size: 30px;
 }
 
 section:nth-child(odd) {
@@ -112,7 +113,7 @@ header .join_button:hover {
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(pictures/intro-banner.webp);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(pictures/img/intro-banner.webp);
   background-size: cover;
   background-position: top;
 }
@@ -240,55 +241,49 @@ button:hover {
 }
 
 /* CHART  */
-#chart .box {
-  /* Styles for the box */
-  width: 100%;
-  height: 400px;
-  margin: 20px;
-  background-color: white;
-  border-radius: 20px;
-  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2);
-}
+/* #chart {
+  position: relative;
+} */
 
-#chart .box h2 {
+#chart h2 {
   font-size: 60px;
   color: black;
   text-align: left;
-  margin: 20px;
+  margin: 10px 20px 20px; /* Adjusted margin-top to move it up */
   line-height: 300px;
   font-weight: bold;
 }
 
-#chart .box h3 {
+#chart h3 {
   font-size: 20px;
   color: black;
   text-align: left;
   margin: 0;
   top: 0;
-  /* Adjust this value to move it up */
   font-weight: bold;
 }
 
-#chart .box svg {
-  /* Target the SVG element containing the ellipse */
-
+#chart svg {
+  position: absolute;
   top: 100px;
-  /* Adjust as needed to position it below the h3 */
   right: 70%;
-  /* Horizontally center it */
   transform: translateX(-50%);
-  /* Adjust for its own width */
 }
+
 
 .music-playlist {
   width: 100%;
   height: auto;
+  margin-top: 450px; /* Adjust the margin-top value */
 }
+
 
 .music-menu {
   width: 100%;
   height: auto;
+  margin-top: 450px; /* Adjust the margin-top value */
 }
+
 
 .menu {
   width: 275px;
@@ -317,73 +312,12 @@ ul li a {
   letter-spacing: 0.5px;
 }
 
-/* this is going to be apart of top song  */
-#upvote {
-  text-align: center;
-  padding: 20px;
-}
 
-h2 {
-  color: white;
-  font-size: 140px;
-}
-
-.song-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-li {
-  margin: 10px;
-  text-align: center;
-}
-
-h3 {
-  margin-bottom: 5px;
-}
-
-img {
-  width: 100px;
-  /* Adjust the size as needed */
-  height: 100px;
-  /* Adjust the size as needed */
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-
-/* this is the song section */
-
-
-:root {
-  --color: #faa700;
-  --color-light: #f5ede1;
-  --dark: #a7a7a7;
-  --darker: #303030;
-  --sans-serif: 'Roboto', sans-serif;
-}
-
-@mixin flex($j: initial, $a: initial, $w: initial, $c: initial) {
-  display: flex;
-  flex-wrap: $w;
-  justify-content: $j;
-  align-items: $a;
-  align-content: $c;
-}
-
-body {
-  font-family: var(--sans-serif);
-  background: #eeeeee;
-}
-
+/* 
 .background {
   width: 100%;
   height: 56.25vw;
-  background: url(https://cdn.klove.com/images/music/artists/bios/SkilletUnleashed.KLArtist.jpg) center/cover;
+  /* background: url(https://cdn.klove.com/images/music/artists/bios/SkilletUnleashed.KLArtist.jpg) center/cover; */
   box-shadow: inset 0px -17vw 20vw 1vw #0a1a24;
   position: absolute;
   top: 0;
@@ -412,267 +346,122 @@ body {
       border: none;
     }
   }
+} */
+
+
+
+#chart {
+  padding: 10px;
+  background-color: #f8f8f8;
 }
 
-section {
-  margin: 100px 56px;
-  padding: 20px 56px;
-  color: var(--darker);
-  color: rgba(255, 255, 255, 0.8);
-
-  .album-info:after {
-    content: " ";
-    display: block;
-    height: 0;
-    clear: both;
-  }
-
-  .album-art {
-    float: left;
-    width: 220px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-
-    * {
-      border-radius: 3px;
-    }
-
-    img {
-      width: 100%;
-      margin-bottom: 10px;
-      margin-top: -80px;
-      box-shadow: 0 5px 60px -3px rgba(0, 0, 0, 0.18);
-    }
-  }
-
-  .play {
-    @include flex(center, center);
-    color: white;
-    background: var(--color);
-    padding: 10px;
-    text-transform: uppercase;
-    flex: 1 0 50%;
-  }
-
-  .bookmark {
-    @include flex(center, center);
-    width: 48px;
-    height: 48px;
-    border: 3px solid var(--color-light);
-    margin-left: 10px;
-  }
-
-  .album-details>* {
-    padding: 10px 0;
-  }
-
-  h2 {
-    @include flex(initial, center);
-    color: var(--dark);
-    font-size: 16px;
-    font-weight: 500;
-    text-transform: uppercase;
-
-    img {
-      width: 24px;
-      border-radius: 50%;
-      margin-right: 10px;
-    }
-  }
-
-  h1 {
-    font-size: 50px;
-    font-weight: 300;
-    word-wrap: break-word;
-
-    +span {
-      color: var(--dark);
-
-      span:first-child {
-        padding-right: 20px;
-      }
-    }
-  }
-
-  p {
-    margin-top: 15px;
-  }
-
-  .album-tracks {
-    background: #f8f8f8;
-    border: 1px solid #efefef;
-    margin-top: 20px;
-  }
-
-  @media (max-width: 800px) {
-    margin: 100px 36px 36px 36px;
-  }
-
-  @media (max-width: 700px) {
-    .album-art {
-      width: 100%;
-
-      img {
-        width: auto;
-        max-width: 100%;
-        margin: -100px auto 10px auto;
-        display: block;
-      }
-    }
-
-    .album-details {
-      float: left;
-      max-width: 100%;
-    }
-  }
-
-  @media (max-width: 550px) {
-    margin: 100px 20px 20px 20px;
-    padding: 20px 16px;
-
-    ol {
-      padding: 16px;
-    }
-  }
+.box {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-ol {
-  list-style-type: none;
-  padding: 20px 36px;
-  font-weight: 500;
-
-  li {
-    counter-increment: number;
-    @include flex(space-between, center);
-    height: 45px;
-    color: var(--dark);
-
-    span:not(:last-child) {
-      margin-right: 2em;
-
-      @media (max-width: 700px) {
-        margin-right: 1em;
-      }
-    }
-
-    span:first-child {
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      color: var(--darker);
-
-      &:before {
-        content: counter(number);
-        margin-right: 2em;
-        color: var(--dark);
-        display: inline-block;
-        text-align: end;
-        width: 20px;
-      }
-    }
-  }
-
-  @media (max-width: 700px) {
-    li {
-      flex-direction: column;
-      align-items: flex-start;
-
-      span:not(:last-child) {
-        margin-right: 0;
-        margin-bottom: 0.5em;
-      }
-    }
-  }
-}
-
-.actions {
-  @include flex();
-  flex: 1 1 100%;
-}
-
-
-
-/*Library Section*/
-#library {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
-}
-
-#library .title {
-  position: absolute;
-  top: 0px;
-  left: 10px;
-  color: black;
+.section-title {
   font-size: 60px;
+  font-weight: bold;
+  color: #333;
 }
 
-#library .lib-mid-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  font-size: 35px;
-  font-family: arial;
-  margin: 140px 80px 200px 70px;
-  height: 400px;
-}
-
-#library .lib-inner {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  color: black;
-  padding: 0px 0px 40px 0px;
-  border-bottom-style: solid;
-  border-bottom-width: 4px;
-  border-bottom-color: #e8eaed;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+button {
+  margin-top: 5px;
+  padding: 8px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-#library .lib-inner:active {
-  margin-top: 3px;
-  margin-left: 3px;
-  box-shadow: none;
+button:hover {
+  background-color: #45a049;
 }
 
-#library p {
-  font-size: 45px;
-}
-
-#library .lib-bottom-container {
-  margin-bottom: 100px;
-}
-
-#library .sub-title {
-  position: absolute;
-  left: 40px;
-  top: 625px;
-  color: #3f4e6e;
-  font-size: 55px;
-}
-
-#library .album-scrollmenu {
+.view-type {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 0px 30px 0px;
-  margin: 0px 70px 0px 80px;
-  background-color: #424549;
-  overflow: auto;
-  white-space: nowrap;
+  margin-top: 5px;
 }
 
-#library .image-placeholder {
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
-  margin: 0px 30px 0px 30px;
+
+.album {
+  margin-top: 10px;
+  display: flex;
+  flex-flow: column;
 }
+
+.album__info {
+  display: flex;
+}
+
+.album__info__meta {
+  margin-left: 15px;
+}
+
+.tracks__heading {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  padding: 8px 0;
+  font-weight: bold;
+}
+
+.tracks__heading__number,
+.tracks__heading__title,
+.tracks__heading__length,
+.tracks__heading__popularity {
+  flex: 1;
+  font-size: 1px;
+}
+
+.track {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  padding: 8px 0;
+}
+
+.track__number,
+.track__added,
+.track__title,
+.track__explicit,
+.track__length,
+.track__popularity {
+  flex: 1;
+}
+
+.track__title {
+  margin-left: 8px;
+}
+
+.title,
+.feature {
+  display: inline-block;
+}
+
+.track__explicit .label {
+  display: none;
+}
+
+.added,
+.not-added,
+.feature {
+  margin-left: 3px;
+}
+
+.added i,
+.not-added i {
+  font-size: 10px;
+  color: #4CAF50;
+}
+
+.track__popularity i {
+  font-size: 10px;
+  color: #4CAF50;
+}
+
 
 /* Download Section */
 #download {
