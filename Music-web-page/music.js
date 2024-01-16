@@ -28,19 +28,19 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-  fetch('/get_songs')
-    .then(response => response.json())
-    .then(songs => {
-      const songList = document.getElementById('song-list');
-      songs.forEach(song => {
-        const track = createTrackElement(song); // Create a track element
-        songList.appendChild(track);
-      });
-    })
-    .catch(error => {
-      console.error('Error fetching songs:', error);
-      // Display an error message to the user
-    });
+  // fetch('http://localhost:8000/songs/votes')
+  //   .then(response => response.json())
+  //   .then(songs => {
+  //     const songList = document.getElementById('song-list');
+  //     songs.forEach(song => {
+  //       const track = createTrackElement(song); // Create a track element
+  //       songList.appendChild(track);
+  //     });
+  //   })
+  //   .catch(error => {
+  //     console.error('Error fetching songs:', error);
+  //     // Display an error message to the user
+  //   });
 });
 
 
@@ -90,10 +90,24 @@ async function submitSongs() { //run in its own time
 // }
 
 async function refreshSongs() {
-  try {
-    const response = await fetch('/get_songs');
-    const songs = await response.json();
 
+  console.log('hello');
+  try {
+     const response = await fetch('http://localhost:8000/votes', {
+    method: "GET"
+  }).then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not OK');  // Handle non-200 status codes
+    }
+    return response.json();  // Parse the response as JSON
+  })
+    // const songs = response;
+    //Agree: if all songs will be like this -> output the same as javascript
+    const songs = [{title:"My Title 1", artist: "Artists Name 1"},
+                  {title:"My Title 2", artist: "Artists Name 2"},
+                  {title:"My Title 3", artist: "Artists Name 3"},
+                  {title:"My Title 4", artist: "Artists Name 4"},
+                  {title:"My Title 5", artist: "Artists Name 5"}];
     const songList = document.getElementById('song-list');
     songList.innerHTML = ''; // Clear existing tracks
 

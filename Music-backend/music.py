@@ -2,7 +2,7 @@ import http.server
 import socketserver
 from http import HTTPStatus
 import json
-from flask import Flask, render_template, jsonify
+
 
 
 
@@ -65,18 +65,4 @@ print("Starting Up on Port " + str(port_num))
 httpd.serve_forever()
 
 
-from flask import Flask, render_template, jsonify
-
-app = Flask(__name__)
-
-# Sample song preferences data
-songPreferences = {"Song 1": 10, "Song 2": 5, "Song 3": 15}
-
-@app.route('/')
-def index():
-    return render_template('index.html', songPreferences=songPreferences)
-
-@app.route('/get_votes')
-def get_votes():
-    return jsonify(songPreferences)  # Send song data as JSON
 
