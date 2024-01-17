@@ -101,13 +101,13 @@ async function refreshSongs() {
     }
     return response.json();  // Parse the response as JSON
   })
-    // const songs = response;
-    //Agree: if all songs will be like this -> output the same as javascript
-    const songs = [{title:"My Title 1", artist: "Artists Name 1"},
-                  {title:"My Title 2", artist: "Artists Name 2"},
-                  {title:"My Title 3", artist: "Artists Name 3"},
-                  {title:"My Title 4", artist: "Artists Name 4"},
-                  {title:"My Title 5", artist: "Artists Name 5"}];
+    const songs = response;
+    //Agree: if all songs will be like this -> output the same as ja
+    // const songs = [{title:"My Title 1", artist: "Artists Name 1"},
+    //               {title:"My Title 2", artist: "Artists Name 2"},
+    //               {title:"My Title 3", artist: "Artists Name 3"},
+    //               {title:"My Title 4", artist: "Artists Name 4"},
+    //               {title:"My Title 5", artist: "Artists Name 5"}];
     const songList = document.getElementById('song-list');
     songList.innerHTML = ''; // Clear existing tracks
 
