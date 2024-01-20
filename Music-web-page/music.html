@@ -1,149 +1,94 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>TuneSync</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>TuneSync</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-</head>
-
-<body>
-  <script src="music.js"></script>
-  <header>
-    <h1 class="logo">TuneSync</h1>
-    <div class="header-RHS">
-      <nav>
-        <ul class="nav-bar">
-          <li><a href="#chart">Chart</a></li>
-          <li><a href="#vote">Vote</a></li>
-          <li><a href="#download">Download</a></li>
-        </ul>
-      </nav>
-      <a class="join_button" href="#join">Join Party</a>
-    </div>
-  </header>
-
-  <!-- Home-Page-Section -->
-  <section id="Home-Page">
-    <div class="banner">
-      <h1>Live and Breathe Singing</h1>
-      <p>TuneSync is a free and open source music streaming platform that allows you <br> <span class="line-break">to
-listen to any music and remotely sing with your friends.</span>
-      </p>
-    </div>
-  </section>
-
-
-
-  <!-- this is where the user will join the party and give the songs they recommend   -->
-  <section id="join">
-    <div class="header">
-      <h2 class="sub1">Join Party</h2>
-      <h3 class="comments">Pick your top 5 favorite songs</h3>
-
-      <form id="songForm">
-        <!-- Input boxes -->
-        <div class="input-box">
-          <label for="song1">Song 1:</label>
-          <input type="text" id="song1" required>
-        </div>
-
-        <div class="input-box">
-          <label for="song2">Song 2:</label>
-          <input type="text" id="song2" required>
-        </div>
-
-        <div class="input-box">
-          <label for="song3">Song 3:</label>
-          <input type="text" id="song3" required>
-        </div>
-
-        <div class="input-box">
-          <label for="song4">Song 4:</label>
-          <input type="text" id="song4" required>
-        </div>
-
-        <div class="input-box">
-          <label for="song5">Song 5:</label>
-          <input type="text" id="song5" required>
-        </div>
-
-        <!-- Enter button -->
-        <button type="button" onclick="submitSongs()">Enter</button>
-
-      </form>
-    </div>
-  </section>
-
- <!-- Voting Section: changes made were just adding the photos just for the layout -->
- <section id="vote">
-  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-  <div class="header">
-    <h2 class="word">Vote</h2>
-     <div class="carousel" data-flickity='{ "wrapAround": true, "autoPlay": true, "imagesLoaded":true }'>
-      <div class="carousel-cell"><img class="w3-image" src="pictureslana.jpg"></div>
-      <div class="carousel-cell"><img class="w3-image" src="pictures/IU.jpg"></div>
-      <div class="carousel-cell"><img class="w3-image" src="pictures/starboy.jpg"></div>
-      <div class="carousel-cell"><img class="w3-image" src="pictures/taylor.jpg"></div>
-    </div>
-  </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-</section>
-
-
-<!-- CHART: this section is the chart part where all the songs will be displayed that were selected by the user -->
-<section id="chart">
-    <span class="section-title">Top Picks</span>
-    <button onclick="refreshSongs()">Refresh Songs</button>
-    <span class= "view-type">
-      <i class = "fa fa-list list active"></i>
-      <i class="fa fa-th-large card"></i>
-                  
-    </span>
-  
-  </div>
-              
-  <div class="album">
-  
-    <div class="album__info">
-  
-    </div>
-    
-    <div class="album__tracks">
-    
-      <div class="tracks">
-        <div id="song-list"></div>
+  <body>
+    <script src="music.js"></script>
+    <header>
+      <h1 class="logo">TuneSync</h1>
+      <div class="header-RHS">
+        <nav>
+          <ul class="nav-bar">
+            <li><a href="#chart">Chart</a></li>
+            <li><a href="#vote">Vote</a></li>
+            <li><a href="#download">Download</a></li>
+          </ul>
+        </nav>
+        <a class="join_button" href="#join">Join Party</a>
       </div>
-    </div>      
-  </div>     
-  
-</div>
-  
-</section>
+    </header>
 
-  <!-- Download Section -->
-  <section id="download">
-    <div class="login-box">
-      <h3 class="subtitle">Login</h3>
-      <button><img src="pictures/google.png">Sign in with Google</button>
-      <button><img src="pictures/spotify.png">Sign in with Spotify</button>
-      <hr>
-      <span>Or</span>
-      <form>
-        <input type="text" placeholder="Email or Username">
-        <button>Next</button>
-      </form>
-      <button>Forgot Password?</button>
-      <p>Don't have an account? <a href= "#">Sign up</a></p>
-      
-      
+    <!-- Home-Page-Section -->
+    <section id="Home-Page">
+      <div class="banner">
+        <h1>Live and Breathe Singing</h1>
+        <p>TuneSync is a free and open source music streaming platform that allows you <br> <span class="line-break">to
+  listen to any music and remotely sing with your friends.</span>
+        </p>
+      </div>
+    </section>
 
-  </section>
-</body>
 
+
+    <!-- this is where the user will join the party and give the songs they recommend   -->
+    <section id="join">
+      <div class="header">
+        <h2 class="sub1">Join Party</h2>
+        <h3 class="comments">Enter Song and its Creator</h3>
+
+        <form id="songForm">
+          <!-- Input boxes -->
+          <div class="input-box">
+            <label for="song">Song:</label>
+            <input type="text" id="song-insertion" required>
+          </div>
+
+          <div class="input-box">
+            <label for="artist">Artist:</label>
+            <input type="text" id="artist-insertion" required>
+          </div>
+
+          <!-- Enter button -->
+          <button type="button" onclick="submitSongs()">Enter</button>
+
+        </form>
+      </div>
+    </section>
+
+    <!-- Voting Section: changes made were just adding the photos just for the layout -->
+    <section id="vote">
+      <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+      <div class="header">
+        <h2 class="word">Vote</h2>
+        <div class="carousel" data-flickity='{ "wrapAround": true, "autoPlay": true, "imagesLoaded":true }'>
+          <div class="carousel-cell"><img class="w3-image" src="pictures/lana.jpeg"></div>
+          <div class="carousel-cell"><img class="w3-image" src="pictures/IU.jpeg"></div>
+          <div class="carousel-cell"><img class="w3-image" src="pictures/starboy.jpeg"></div>
+          <div class="carousel-cell"><img class="w3-image" src="pictures/taylor.jpeg"></div>
+        </div>
+      </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    </section>
+
+
+    <!-- CHART: this section is the chart part where all the songs will be displayed that were selected by the user -->
+    <section id="chart">
+      <h1>Top Picks</h1>
+      <button onclick="refreshSongs()">Refresh Songs</button>
+      <div class="song-list" id="song-list"></div>  
+
+
+    </section>
+
+
+  </body>
 </html>

@@ -106,6 +106,24 @@ header .join_button:hover {
   background-color: #657495;
 }
 
+ul {
+  font-size: 12px;
+  padding: initial;
+}
+
+ul li {
+  display: inline-block;
+  white-space: nowrap;
+
+}
+
+ul li a {
+  color: black;
+  text-decoration: none;
+  padding: 5px 15px;
+  letter-spacing: 0.5px;
+}
+
 
 /*Intro-Home-Page*/
 .banner {
@@ -241,333 +259,24 @@ button:hover {
   /* Adjust the opacity value as needed */
 }
 
-/* CHART  */
-/* #chart {
-  position: relative;
-} */
-
-#chart h2 {
-  font-size: 60px;
-  color: black;
-  text-align: left;
-  margin: 10px 20px 20px; /* Adjusted margin-top to move it up */
-  line-height: 300px;
-  font-weight: bold;
-}
-
-#chart h3 {
-  font-size: 20px;
-  color: black;
-  text-align: left;
-  margin: 0;
-  top: 0;
-  font-weight: bold;
-}
-
-#chart svg {
-  position: absolute;
-  top: 100px;
-  right: 70%;
-  transform: translateX(-50%);
-}
-
-
-.music-playlist {
-  width: 100%;
-  height: auto;
-  margin-top: 450px; /* Adjust the margin-top value */
-}
-
-
-.music-menu {
-  width: 100%;
-  height: auto;
-  margin-top: 450px; /* Adjust the margin-top value */
-}
-
-
-.menu {
-  width: 275px;
-  height: 16px;
-  margin: 15px 30px auto;
-  border-radius: 10px;
-  border: 1px solid #fff;
-  white-space: nowrap;
-}
-
-ul {
-  font-size: 12px;
-  padding: initial;
-}
-
-ul li {
-  display: inline-block;
-  white-space: nowrap;
-
-}
-
-ul li a {
-  color: black;
-  text-decoration: none;
-  padding: 5px 15px;
-  letter-spacing: 0.5px;
-}
-
-
-/* 
-.background {
-  width: 100%;
-  height: 56.25vw;
-  /* background: url(https://cdn.klove.com/images/music/artists/bios/SkilletUnleashed.KLArtist.jpg) center/cover; */
-  box-shadow: inset 0px -17vw 20vw 1vw #0a1a24;
-  position: absolute;
-  top: 0;
-  z-index: -1;
-
-  img {
-    max-width: 100%;
-    max-height: 100vh;
-    box-shadow: inset 0px -17vw 30vw 1vw #131313;
-  }
-
-  +section {
-    margin-top: 60vmin;
-    background: transparent;
-
-    .bookmark {
-      border-color: rgba(255, 255, 255, 0.2);
-
-      svg {
-        fill: #fff;
-      }
-    }
-
-    .album-tracks {
-      background: rgba(255, 255, 255, 0.1);
-      border: none;
-    }
-  }
-} */
-
-
-
-#chart {
-  padding: 10px;
-  background-color: #f8f8f8;
-}
-
-.box {
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.section-title {
-  font-size: 60px;
-  font-weight: bold;
-  color: #333;
-}
-
-button {
-  margin-top: 5px;
-  padding: 8px;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-.view-type {
-  display: flex;
-  margin-top: 5px;
-}
-
-
-.album {
-  margin-top: 10px;
-  display: flex;
-  flex-flow: column;
-}
-
-.album__info {
-  display: flex;
-}
-
-.album__info__meta {
-  margin-left: 15px;
-}
-
-.tracks__heading {
-  display: flex;
-  border-bottom: 1px solid #ddd;
-  padding: 8px 0;
-  font-weight: bold;
-}
-
-.tracks__heading__number,
-.tracks__heading__title,
-.tracks__heading__length,
-.tracks__heading__popularity {
-  flex: 1;
-  font-size: 1px;
-}
-
-.track {
-  display: flex;
-  border-bottom: 1px solid #ddd;
-  padding: 8px 0;
-}
-
-.track__number,
-.track__added,
-.track__title,
-.track__explicit,
-.track__length,
-.track__popularity {
-  flex: 1;
-}
-
-.track__title {
-  margin-left: 8px;
-}
-
-.title,
-.feature {
-  display: inline-block;
-}
-
-.track__explicit .label {
-  display: none;
-}
-
-.added,
-.not-added,
-.feature {
-  margin-left: 3px;
-}
-
-.added i,
-.not-added i {
-  font-size: 10px;
-  color: #4CAF50;
-}
-
-.track__popularity i {
-  font-size: 10px;
-  color: #4CAF50;
-}
-
-
-/* Download Section */
-#download {
-  position: relative;
-}
-
-#download .title {
-  position: absolute;
-  top: 0px;
-  left: 10px;
-  color: black;
-  font-size: 60px;
-}
-
-#download .login-box {
-  background: #fff;
-  text-align: center;
-  padding: 20px;
-  width: 50%;
-  position: absolute;
-  border-radius: 10px;
-}
-
-#download .subtitle {
-  color: black;
-  font-size: 30px;
-  text-align: center;
-}
-
-#download .login-box button img {
-  margin-right: 10px;
-  width: 18px;
-  height: 18px;
-}
-
-#download .login-box button {
-  width: 100%;
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 0;
-  border-radius: 30px;
-  background: transparent;
-  border: 1px solid #999;
-  font-weight: 500;
-  color: black;
-}
-
-#download .login-box hr {
-  border: 0;
-  height: 1px;
-  background: #c2c2c2;
-  margin: 5px;
-}
-
-#download .login-box span {
-  display: block;
-  width: 40px;
-  margin: auto;
-  background: #fff;
-  font-size: 14px;
-  margin-top: -16px;
-  color: black;
-  font-weight: normal;
-
-}
-
-#download .login-box form {
-  margin-top: -60px;
-}
-
-#download .login-box input {
-  width: 100%;
-  background: transparent;
-  border: 1p solid #999;
-  outline: 0;
-  padding: 15px 10px;
-
-}
-
-#download .login-box form button {
-  background: #3A4089;
-  color: #fff;
-  border: 0;
-  margin-bottom: 15px;
-}
-
-#download .login-box p {
-  text-align: left;
-  color: black;
-  font-size: 14px;
-  margin-top: -10px;
-  font-weight: normal;
-}
-
-#download .login-box p a {
-  color: #359cf0;
-  font-family: arial;
-}
-
-/* image wheel */
 img {
   float: left;
   width:  230px;
   height: 230px;
   object-fit: cover;
+}
+
+/* CHART  */
+#chart {
+  display: flex;
+  flex-direction: column;
+}
+
+.blueberry {
+  padding: 10px;
+}
+
+.song-list, .rasberry {
+  display: flex;
+  flex-direction: row;
 }
