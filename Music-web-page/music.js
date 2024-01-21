@@ -63,9 +63,10 @@ async function submitSongs() { //run in its own time
     title.classList.add('blueberry')
     const upVote = document.createElement("button")
     upVote.textContent = 'upVote'
-    upVote.onclick = () => {vote(preference.song , true)} //true means upvote
+    upVote.onclick = () => {upvote(preference.song , true)} //true means upvote
     const downVote = document.createElement("button")
     downVote.textContent = 'downVote'
+    downVote.onclick = () => {downvote(preference.song , true)} 
     listItem.appendChild(title)
     listItem.appendChild(upVote)
     listItem.appendChild(downVote)
@@ -98,11 +99,25 @@ async function refreshSongs() {
 
 
 
-async function vote(songName, upVote) {
+async function upvote(songName, upVote) {
   const response = await fetch('http://localhost:8000/votes', {
     method: "POST", body: JSON.stringify({
       song: songName, 
       isUpvote: upVote
+    })
+  }).then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not OK');  // Handle non-200 status codes
+    }
+    return response.json();  // Parse the response as JSON
+  })
+}
+
+async function downvote(songName, downVote) {
+  const response = await fetch('http://localhost:8000/votes', {
+    method: "POST", body: JSON.stringify({
+      song: songName, 
+      isUpvote: downVote
     })
   }).then(response => {
     if (!response.ok) {
