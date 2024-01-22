@@ -38,10 +38,6 @@ async function submitSongs() { //run in its own time
   const song = songInput.value || "No Songs"
   const artist = artistInput.value || "No Songs"
 
-  if(song == "No Songs" && artist == "No Songs"){
-    return;
-  }
-
   const response = await fetch('http://localhost:8000/songs', {
     method: "POST",
     body: JSON.stringify({
