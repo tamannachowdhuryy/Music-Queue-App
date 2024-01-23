@@ -38,11 +38,10 @@ async function submitSongs() { //run in its own time
   const song = songInput.value || "No Songs"
   const artist = artistInput.value || "No Songs"
 
-
-
   const response = await fetch('http://localhost:8000/songs', {
-    method: "POST", body: JSON.stringify({
-      song, 
+    method: "POST",
+    body: JSON.stringify({
+      song,
       artist
     })
   }).then(response => {
@@ -50,8 +49,8 @@ async function submitSongs() { //run in its own time
       throw new Error('Network response was not OK');  // Handle non-200 status codes
     }
     return response.json();  // Parse the response as JSON
-  })
-
+  });
+  
   console.log("Got response from the server: ")
   console.log(response)
   const list = document.createElement("ol");
@@ -63,10 +62,10 @@ async function submitSongs() { //run in its own time
     title.classList.add('blueberry')
     const upVote = document.createElement("button")
     upVote.textContent = 'upVote'
-    upVote.onclick = () => {upvote(preference.song , true)} //true means upvote
     const downVote = document.createElement("button")
+    upVote.onclick = () => {vote(preference.song , true)} //true means upvote
     downVote.textContent = 'downVote'
-    downVote.onclick = () => {downvote(preference.song , true)} 
+    downVote.onclick = () => {vote(preference.song , false)}
     listItem.appendChild(title)
     listItem.appendChild(upVote)
     listItem.appendChild(downVote)
@@ -81,44 +80,13 @@ async function submitSongs() { //run in its own time
   }
 }
 
+async function vote(songName, upVote) {
 
-
-
-async function refreshSongs() {
-  console.log('hi')
-  const response = await fetch('http://localhost:8000/votes', {
-    method: "GET"
-  }).then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not OK');  // Handle non-200 status codes
-    }
-    return response.json();  // Parse the response as JSON
-  })
-  console.log(response)
-}
-
-
-
-async function upvote(songName, upVote) {
   const response = await fetch('http://localhost:8000/votes', {
     method: "POST", body: JSON.stringify({
       song: songName, 
       isUpvote: upVote
-    })
-  }).then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not OK');  // Handle non-200 status codes
-    }
-    return response.json();  // Parse the response as JSON
-  })
-}
-
-async function downvote(songName, downVote) {
-  const response = await fetch('http://localhost:8000/votes', {
-    method: "POST", body: JSON.stringify({
-      song: songName, 
-      isUpvote: downVote
-    })
+    }) 
   }).then(response => {
     if (!response.ok) {
       throw new Error('Network response was not OK');  // Handle non-200 status codes

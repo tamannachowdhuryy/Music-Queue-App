@@ -28,7 +28,6 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         if (self.path == '/songs'):
             print('/songs')
             song = body_message['song']
-            artist = body_message['artist']
 
             if song in self.preferences:
                 self.preferences[song] = self.preferences[song] + 1
@@ -53,9 +52,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
             if (isUpvote):
                 self.preferences[song] += 1
-            else: 
+            else:
                 self.preferences[song] -= 1
-            
+                
             print(song)   
             self.wfile.write(json.dumps({"preferences": self.getPreference()}).encode())
 
