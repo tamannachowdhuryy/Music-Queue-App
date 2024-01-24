@@ -28,7 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+  refreshClick()
+  setInterval(refreshClick, 10000)
+
 });
+
 
 
 async function submitSongs() { //run in its own time
@@ -51,6 +55,27 @@ async function submitSongs() { //run in its own time
     return response.json();  // Parse the response as JSON
   });
   
+  updateOnResponse(response)
+  
+}
+
+async function refreshClick(){
+  const response = await fetch('http://localhost:8000/votes', {
+    method: "GET",
+
+
+  }).then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not OK');  // Handle non-200 status codes
+    }
+    return response.json();  // Parse the response as JSON
+  });
+
+  updateOnResponse(response)
+
+}
+
+function updateOnResponse(response){
   console.log("Got response from the server: ")
   console.log(response)
   const list = document.createElement("ol");
@@ -58,24 +83,35 @@ async function submitSongs() { //run in its own time
     const listItem = document.createElement("li");
     listItem.classList.add('rasberry')
     const title = document.createElement('div')
-    title.textContent = preference.song + ' ' + preference.vote
+    title.textContent = preference.song
     title.classList.add('blueberry')
     const upVote = document.createElement("button")
     upVote.classList.add("upVoteButton"); // Apply styling class
     upVote.style.backgroundImage = "url('pictures/like.png')";
     upVote.style.backgroundSize = "50% auto"; // Adjust image scaling as needed
     upVote.onclick = () => {vote(preference.song , true)} //true means upvote
+    const thumbsUpCount = document.createElement('div')
+    thumbsUpCount.textContent = preference.vote.upvote
+    thumbsUpCount.classList.add('blueberry')
+    
 
     const downVote = document.createElement("button")
     downVote.classList.add("downVoteButton"); // Apply styling class
     downVote.style.backgroundImage = "url('pictures/thumb-down.png')";
     downVote.style.backgroundSize = "50% auto"; // Adjust image scaling as needed
     downVote.onclick = () => {vote(preference.song , false)}
+    const thumbsDownCount = document.createElement('div')
+    thumbsDownCount.textContent = preference.vote.downvote
+    thumbsDownCount.classList.add('blueberry')
+
     
     listItem.appendChild(title)
     listItem.appendChild(upVote)
+    listItem.appendChild(thumbsUpCount)
     listItem.appendChild(downVote)
+    listItem.appendChild(thumbsDownCount)
     list.appendChild(listItem)
+   
   })
 
     const responseElement = document.getElementById("song-list")
@@ -85,6 +121,9 @@ async function submitSongs() { //run in its own time
     responseElement.appendChild(list)
   }
 }
+
+
+
 
 async function vote(songName, upVote) {
 
@@ -99,4 +138,8 @@ async function vote(songName, upVote) {
     }
     return response.json();  // Parse the response as JSON
   })
+  updateOnResponse(response)
+  
+  
+  
 }
