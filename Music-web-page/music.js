@@ -61,11 +61,17 @@ async function submitSongs() { //run in its own time
     title.textContent = preference.song + ' ' + preference.vote
     title.classList.add('blueberry')
     const upVote = document.createElement("button")
-    upVote.textContent = 'upVote'
-    const downVote = document.createElement("button")
+    upVote.classList.add("upVoteButton"); // Apply styling class
+    upVote.style.backgroundImage = "url('pictures/like.png')";
+    upVote.style.backgroundSize = "50% auto"; // Adjust image scaling as needed
     upVote.onclick = () => {vote(preference.song , true)} //true means upvote
-    downVote.textContent = 'downVote'
+
+    const downVote = document.createElement("button")
+    downVote.classList.add("downVoteButton"); // Apply styling class
+    downVote.style.backgroundImage = "url('pictures/thumb-down.png')";
+    downVote.style.backgroundSize = "50% auto"; // Adjust image scaling as needed
     downVote.onclick = () => {vote(preference.song , false)}
+    
     listItem.appendChild(title)
     listItem.appendChild(upVote)
     listItem.appendChild(downVote)

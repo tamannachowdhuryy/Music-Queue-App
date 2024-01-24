@@ -25,7 +25,7 @@ section {
   font-size: 30px;
 }
 
-section:nth-child(odd) {
+section:nth-child(even) {
   background-color: white;
 }
 
@@ -267,16 +267,51 @@ img {
 }
 
 /* CHART  */
+
 #chart {
-  display: flex;
+  display: flex; /* Use flex for overall chart layout */
   flex-direction: column;
 }
 
-.blueberry {
-  padding: 10px;
+.song-list {
+  display: grid; /* Use grid for list items */
+  grid-template-columns: 1fr; /* Single column for vertical list */
+  grid-template-rows: repeat(auto-fit, minmax(40px, 1fr)); /* Adjust row height */
+  gap: 10px; /* Optional spacing between items */
 }
 
-.song-list, .rasberry {
+.rasberry {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.blueberry {
+  flex-grow: 1; /* Expand song title to fill space */
+}
+
+/* Styling for the number */
+.rasberry > div:first-child {
+  font-weight: bold; /* Optional emphasis for the number */
+  text-align: left; /* Align number to the right */
+}
+
+.upVoteButton {
+  width: 30px; /* Adjust as needed */
+  height: 30px; /* Adjust as needed */
+  border: none;
+  background: transparent; /* Remove default button background */
+  cursor: pointer; /* Indicate interactivity */
+  background-position: center; /* Position image within button */
+  background-repeat: no-repeat; /* Prevent image tiling */
+}
+
+.downVoteButton {
+  width: 30px; /* Adjust as needed */
+  height: 30px; /* Adjust as needed */
+  border: none;
+  background: transparent; /* Remove default button background */
+  cursor: pointer; /* Indicate interactivity */
+  background-position: center; /* Position image within button */
+  background-repeat: no-repeat; /* Prevent image tiling */
 }
