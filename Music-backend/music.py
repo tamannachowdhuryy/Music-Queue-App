@@ -8,7 +8,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
     preferences = {}
 
-    def do_POST(self):
+    def do_POST(self): 
         # Set the required headers for the POST request.
         self.send_response(200)
         self.send_header("Content-type", "application/json")
@@ -24,25 +24,16 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         print("Recieved Request: ")
         print(body_message)
 
+        
 
         if (self.path == '/songs'):
             print('/songs')
             song = body_message['song']
 
             if song in self.preferences:
-                self.preferences[song] = self.preferences[song] + 1
+                self.preferences[song]['upvote'] += 1
             else:
-                self.preferences[song] = 1
-
-            # preferences.append(body_message)
-            # sorted_preferences = sorted(preferences, key = lambda pref: pref["song"])
-            # preferences_list = list(
-            #     map(
-            #         lambda pref: f"%s | %s"
-            #         % (pref["song"], pref["artist"]),
-            #         sorted_preferences,
-            #     )
-            # )
+                self.preferences[song] = {"upvote": 1, "downvote": 0} #struct for upvote in a map form and can store many things 
         # Write a response
             self.wfile.write(json.dumps({"preferences": self.getPreference()}).encode())
 
@@ -51,9 +42,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             isUpvote = body_message['isUpvote']
 
             if (isUpvote):
-                self.preferences[song] += 1
+                self.preferences[song]['upvote'] += 1 #getting the feild and adding 1
             else:
-                self.preferences[song] -= 1
+                self.preferences[song]['downvote'] += 1
                 
             print(song)   
             self.wfile.write(json.dumps({"preferences": self.getPreference()}).encode())
@@ -64,12 +55,11 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.send_header("Content-type", "application/json")
         self.send_header("Access-Control-Allow-Origin", "*")
         self.end_headers()
-        self.wfile.write(json.dumps({}).encode())
-
+        
 
         if(self.path == '/votes'):
             print('hi')
-            self.wfile.write(json.dumps({'songNames' : self.preferences}).encode())
+            self.wfile.write(json.dumps({"preferences": self.getPreference()}).encode())
             return 
         self.wfile.write(json.dumps({}).encode())
         print('hi2')
@@ -80,7 +70,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         # return an array of objects
         # [{song: '', vote: int}, {song: '', vote: int}, {song: '', vote: int}, {song: '', vote: int}]
         songList = [{'song': song, 'vote': self.preferences[song]} for song in self.preferences]
-        sorted_songList = sorted(songList, key = lambda songStruct: songStruct['vote'])
+        sorted_songList = sorted(songList, key = lambda songStruct: songStruct['vote']['upvote'] - songStruct['vote']['downvote'])
         sorted_songList.reverse()
         return sorted_songList
 
